@@ -728,7 +728,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const filtered = filter === "todo" 
             ? productsData 
-            : productsData.filter(p => p.categoria === filter);
+            : productsData.filter(p => p.categoria.toLowerCase() === filter.toLowerCase());
+
+        if (filtered.length === 0) {
+            grid.innerHTML = `<p style="color: #888; text-align: center; grid-column: 1/-1;">No hay productos en esta categoría.</p>`;
+            return;
+        }
 
         filtered.forEach(product => {
             const card = document.createElement("div");
@@ -740,7 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
                 <div class="product-image-container ${product.agotado ? 'sold-out' : ''}">
-                    <img src="${product.imagen}" alt="${product.nombre}" onerror="this.src='assets/meltdown_logo_nobg.png'">
+                    <img src="${product.imagen}" alt="${product.nombre}" onerror="this.src='assets/meltdown_logo_nobg.jpg'">
                     ${product.agotado ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
                 </div>
                 <h3>${product.nombre}</h3>
@@ -761,5 +766,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    renderProducts();
+    renderProducts("todo");
 });
