@@ -704,7 +704,7 @@ const productsData = [
         precio: "$17.00",
         categoria: "ropa",
         imagen: "assets/franela-my-chemical-romance.jpg",
-        agotado: true
+        agotado: true 
     },
 
     // --- 20.00$ ---
