@@ -363,15 +363,8 @@ body {
     box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
 }
 
-.whatsapp-float:hover svg path {
-    fill: #000;
-}
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background: #25d366;
-    box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
-}
+
 
 .whatsapp-float:hover svg path {
     fill: #000;
