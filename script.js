@@ -717,18 +717,23 @@ const productsData = [
     }
 ];
 
+// Pega entre las comillas la URL que copiaste de Google Apps Script
+const API_URL = "https://script.google.com/macros/s/AKfycbwrynO8SoPouIa-xhZDIRtxPPklMcKiKmYObTRjAkXbq_gtC8b24tQMmaXVQ45nkLKZtA/exec";
+
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".product-grid");
     const filterButtons = document.querySelectorAll(".category-filters button");
 
     if (!grid) return;
 
+    let productsData = [];
+
     function renderProducts(filter = "todo") {
         grid.innerHTML = "";
 
         const filtered = filter === "todo" 
             ? productsData 
-            : productsData.filter(p => p.categoria.toLowerCase() === filter.toLowerCase());
+            : productsData.filter(p => p.categoria && p.categoria.toLowerCase() === filter.toLowerCase());
 
         if (filtered.length === 0) {
             grid.innerHTML = `<p style="color: #888; text-align: center; grid-column: 1/-1;">No hay productos en esta categoría.</p>`;
@@ -743,20 +748,34 @@ document.addEventListener("DOMContentLoaded", () => {
             const msg = encodeURIComponent(`Hola, vengo de la página web y quiero hacer un pedido de MELTDOWN: ${product.nombre}`);
             const waLink = `https://wa.me/584129873719?text=${msg}`;
 
+            const isSoldOut = product.agotado === true || String(product.agotado).toLowerCase() === "true";
+
             card.innerHTML = `
-                <div class="product-image-container ${product.agotado ? 'sold-out' : ''}">
+                <div class="product-image-container ${isSoldOut ? 'sold-out' : ''}">
                     <img src="${product.imagen}" alt="${product.nombre}" onerror="this.src='assets/meltdown_logo_nobg.jpg'">
-                    ${product.agotado ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
+                    ${isSoldOut ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
                 </div>
                 <h3>${product.nombre}</h3>
                 <p class="price">${product.precio}</p>
-                <a href="${product.agotado ? '#' : waLink}" class="whatsapp-btn ${product.agotado ? 'disabled' : ''}" target="_blank" rel="noopener noreferrer">
-                    ${product.agotado ? 'Agotado' : 'Pedir por WhatsApp'}
+                <a href="${isSoldOut ? '#' : waLink}" class="whatsapp-btn ${isSoldOut ? 'disabled' : ''}" target="_blank" rel="noopener noreferrer">
+                    ${isSoldOut ? 'Agotado' : 'Pedir por WhatsApp'}
                 </a>
             `;
             grid.appendChild(card);
         });
     }
+
+    // Petición dinámica a la hoja de Google Sheets
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            productsData = data;
+            renderProducts("todo");
+        })
+        .catch(error => {
+            console.error("Error al sincronizar inventario:", error);
+            grid.innerHTML = `<p style="color: #ff4d4d; text-align: center; grid-column: 1/-1;">Error al conectar con la base de datos.</p>`;
+        });
 
     filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -765,6 +784,4 @@ document.addEventListener("DOMContentLoaded", () => {
             renderProducts(btn.getAttribute("data-filter"));
         });
     });
-
-    renderProducts("todo");
 });
