@@ -552,44 +552,40 @@ a.whatsapp-float:hover svg path {
     }
     
 /* ==========================================================
-   BOTÓN DE WHATSAPP DEFINITIVO (TAMAÑO IDEAL Y CENTRADO)
+   BOTÓN DE WHATSAPP DEFINITIVO CON PNG (CERO DEFORMACIONES)
    ========================================================== */
 a.whatsapp-float {
     position: fixed !important;
     bottom: 25px !important;
     right: 25px !important;
-    width: 66px !important;
-    height: 66px !important;
-    min-width: 66px !important;
-    min-height: 66px !important;
-    max-width: 66px !important;
-    max-height: 66px !important;
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
     background-color: #081a0c !important;
     border: 2px solid #25d366 !important;
     border-radius: 50% !important;
-    box-shadow: 0 0 25px rgba(37, 211, 102, 0.6) !important;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5) !important;
     z-index: 999999 !important;
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     padding: 0 !important;
     margin: 0 !important;
+    transition: all 0.3s ease !important;
 }
 
-a.whatsapp-float svg {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 38px !important;
-    height: 38px !important;
+a.whatsapp-float img {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain !important;
     display: block !important;
 }
 
 a.whatsapp-float:hover {
-    transform: scale(1.1) translate(-50%, 0) !important; /* Mantiene la escala centrada en hover */
+    transform: scale(1.1) !important;
     background-color: #25d366 !important;
-    box-shadow: 0 0 35px rgba(37, 211, 102, 0.9) !important;
-}
-
-a.whatsapp-float:hover svg path {
-    fill: #000 !important;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.9) !important;
 }
