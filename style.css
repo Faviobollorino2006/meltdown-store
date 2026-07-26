@@ -331,7 +331,8 @@ body {
     letter-spacing: 1px;
 }
 
-/* Botón Flotante de WhatsApp */
+
+/* Botón Flotante de WhatsApp Corregido */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -347,6 +348,23 @@ body {
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
     z-index: 1000;
     transition: all 0.3s ease;
+}
+
+/* Evita que el SVG se deforme dentro del flexbox */
+.whatsapp-float svg {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background: #25d366;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+}
+
+.whatsapp-float:hover svg path {
+    fill: #000;
 }
 
 .whatsapp-float:hover {
