@@ -145,15 +145,18 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 22px;
+    align-items: stretch; /* Fuerza a que todas las filas tengan la misma altura */
 }
 
 .product-card {
     background: #080808;
     border: 1px solid #210808;
     border-radius: 6px;
-    padding: 12px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Empuja el botón de WhatsApp siempre al fondo */
+    height: 100%;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -176,13 +179,31 @@ body {
 .product-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* <-- AHORA LLENARÁ EL CUADRO PERFECTAMENTE */
+    object-fit: cover; /* Llena el marco sin dejar espacios vacíos */
     transition: transform 0.4s ease;
 }
 
 
 .product-card:hover .product-image-container img {
     transform: scale(1.05);
+}
+
+.product-card h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 12px 0 6px 0;
+    color: #e0e0e0;
+    min-height: 40px; /* Altura fija para compensar títulos largos o cortos */
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ff4d4d;
+    margin-bottom: 12px;
+    text-shadow: 0 0 5px rgba(255, 77, 77, 0.3);
 }
 
 .product-image-container.sold-out img {
@@ -334,31 +355,38 @@ body {
 
 
 
+/* Botón Flotante de WhatsApp - Círculo Geométrico Inquebrantable */
 .whatsapp-float {
     position: fixed;
-    bottom: 35px;
-    right: 35px;
-    width: 55px !important;
-    height: 55px !important;
-    min-width: 50px;
-    min-height: 50px;
+    bottom: 25px;
+    right: 25px;
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
     background: #081a0c;
     border: 2px solid #25d366;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-    z-index: 1000;
+    z-index: 9999;
     transition: all 0.3s ease;
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
 }
 
 .whatsapp-float svg {
-    width: 28px !important;
-    height: 28px !important;
-    display: block;
-    flex-shrink: 0;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
 }
 
 .whatsapp-float:hover {
