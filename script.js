@@ -742,7 +742,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
                 <div class="product-image-container ${product.agotado ? 'sold-out' : ''}">
-                    <img src="${product.imagen}" alt="${product.nombre}" onerror="this.src='assets/meltdown_logo_nobg.jpg'">
+                    <img src="${product.imagen}" alt="${product.nombre}" onerror="this.src='assets/meltdown_logo_nobg.png'">
                     ${product.agotado ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
                 </div>
                 <h3>${product.nombre}</h3>
