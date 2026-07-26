@@ -717,7 +717,6 @@ const productsData = [
     }
 ];
 
-// Pega entre las comillas la URL que copiaste de Google Apps Script
 const API_URL = "https://script.google.com/macros/s/AKfycbwrynO8SoPouIa-xhZDIRtxPPklMcKiKmYObTRjAkXbq_gtC8b24tQMmaXVQ45nkLKZtA/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -727,6 +726,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!grid) return;
 
     let productsData = [];
+
+    // Mostrar mensaje de invocación antes de que lleguen los datos
+    grid.innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; font-family: 'Cinzel', serif; color: #ff1a1a; text-shadow: 0 0 10px rgba(255, 26, 26, 0.5); font-size: 1.1rem; letter-spacing: 2px;">
+            Invocando el catálogo de la oscuridad...
+        </div>
+    `;
 
     function renderProducts(filter = "todo") {
         grid.innerHTML = "";
@@ -765,7 +771,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Petición dinámica a la hoja de Google Sheets
+    // Petición a la API de Google Sheets
     fetch(API_URL)
         .then(response => response.json())
         .then(data => {
