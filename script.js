@@ -459,7 +459,7 @@ const productsData = [
         nombre: "Tachas Blanco y Negro",
         precio: "$8.00",
         categoria: "accesorios",
-        imagen: "assets/tachas-blanco-negro.jpg",
+        imagen: "assets/pulsera-tachas-blanco-negro.jpg",
         agotado: false
     },
 
@@ -611,7 +611,7 @@ const productsData = [
         nombre: "Franela Alice in Chains (Talla L)",
         precio: "$17.00",
         categoria: "ropa",
-        imagen: "assets/franela-alice_in_chains.jpg",
+        imagen: "assets/franela-alice-in-chains.jpg",
         agotado: false
     },
     {
@@ -667,7 +667,7 @@ const productsData = [
         nombre: "Franela Nine Inch Nails (Talla L)",
         precio: "$17.00",
         categoria: "ropa",
-        imagen: "assets/franela-nin-inch-nails.jpg",
+        imagen: "assets/franela-nine-inch-nails.jpg",
         agotado: false
     },
     {
