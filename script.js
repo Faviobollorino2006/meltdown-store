@@ -45,49 +45,49 @@ const productsData = [
         nombre: "Goth Bat (Aretes)",
         precio: "$4.00",
         categoria: "accesorios",
-        imagen: "assets/goth-bat.jpg",
+        imagen: "assets/goth-bat-aretes.jpg",
         agotado: true
     },
     {
         nombre: "Dagger (Aretes)",
         precio: "$4.00",
         categoria: "accesorios",
-        imagen: "assets/dagger.jpg",
+        imagen: "assets/dagger-aretes.jpg",
         agotado: false
     },
     {
         nombre: "Crosses (Aretes)",
         precio: "$4.00",
         categoria: "accesorios",
-        imagen: "assets/crosses.jpg",
+        imagen: "assets/crosses-aretes.jpg",
         agotado: true
     },
     {
         nombre: "Swords (Aretes)",
         precio: "$4.00",
         categoria: "accesorios",
-        imagen: "assets/swords.jpg",
+        imagen: "assets/swords-aretes.jpg",
         agotado: false
     },
     {
         nombre: "Vamp's Coffin (Aretes)",
         precio: "$4.00",
         categoria: "accesorios",
-        imagen: "assets/vamps-coffin.jpg",
+        imagen: "assets/vamps-coffin-aretes.jpg",
         agotado: false
     },
     {
         nombre: "Skulls (Aretes)",
         precio: "$3.50",
         categoria: "accesorios",
-        imagen: "assets/skulls.jpg",
+        imagen: "assets/skulls-aretes.jpg",
         agotado: false
     },
     {
         nombre: "Crow Heads (Aretes)",
         precio: "$4.00",
         categoria: "accesorios",
-        imagen: "assets/crow-heads.jpg",
+        imagen: "assets/crow-heads-aretes.jpg",
         agotado: false
     },
     {
@@ -117,35 +117,35 @@ const productsData = [
         nombre: "Dark Cross (Collar)",
         precio: "$5.00",
         categoria: "accesorios",
-        imagen: "assets/dark-cross.jpg",
+        imagen: "assets/dark-cross-collar.jpg",
         agotado: true
     },
     {
         nombre: "Red Stone (Collar)",
         precio: "$5.00",
         categoria: "accesorios",
-        imagen: "assets/red-stone.jpg",
+        imagen: "assets/red-stone-collar.jpg",
         agotado: false
     },
     {
         nombre: "Dripping Cross (Collar)",
         precio: "$5.00",
         categoria: "accesorios",
-        imagen: "assets/dripping-cross.jpg",
+        imagen: "assets/dripping-cross-collar.jpg",
         agotado: true
     },
     {
         nombre: "Rose Wired (Aretes)",
         precio: "$5.00",
         categoria: "accesorios",
-        imagen: "assets/rose-wired.jpg",
+        imagen: "assets/rose-wired-aretes.jpg",
         agotado: true
     },
     {
         nombre: "Red Guitar (Aretes)",
         precio: "$5.00",
         categoria: "accesorios",
-        imagen: "assets/red-guitar.jpg",
+        imagen: "assets/red-guitar-aretes.jpg",
         agotado: true
     },
     {
@@ -456,7 +456,7 @@ const productsData = [
         agotado: false
     },
     {
-        nombre: "Tachas Blanco y Negro (Pulsera 1H)",
+        nombre: "Tachas Blanco y Negro",
         precio: "$8.00",
         categoria: "accesorios",
         imagen: "assets/tachas-blanco-negro.jpg",
