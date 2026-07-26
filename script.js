@@ -459,7 +459,7 @@ const productsData = [
         nombre: "Tachas Blanco y Negro (Pulsera 1H)",
         precio: "$8.00",
         categoria: "accesorios",
-        imagen: "assets/tachas-blanco-negro-1h.jpg",
+        imagen: "assets/tachas-blanco-negro.jpg",
         agotado: false
     },
 
@@ -534,13 +534,9 @@ const productsData = [
         imagen: "assets/pulseras-2-hileras.jpg",
         agotado: false
     },
-    {
-        nombre: "Tachas Blanco y Negro (Pulsera 2H)",
-        precio: "$10.00",
-        categoria: "accesorios",
-        imagen: "assets/tachas-blanco-negro-2h.jpg",
-        agotado: false
-    },
+    
+        
+
     {
         nombre: "Pulsera Balas",
         precio: "$10.00",
@@ -578,13 +574,7 @@ const productsData = [
         imagen: "assets/pulseras-3-4-hileras.jpg",
         agotado: false
     },
-    {
-        nombre: "Tachas Blanco y Negro (Pulsera 3-4H)",
-        precio: "$12.00",
-        categoria: "accesorios",
-        imagen: "assets/tachas-blanco-negro-34h.jpg",
-        agotado: true
-    },
+    
 
     // --- 15.00$ ---
     {
@@ -614,14 +604,14 @@ const productsData = [
         nombre: "Franela System of a Down (Talla L)",
         precio: "$17.00",
         categoria: "ropa",
-        imagen: "assets/franela-system.jpg",
+        imagen: "assets/franela-system-of-a-down.jpg",
         agotado: false
     },
     {
         nombre: "Franela Alice in Chains (Talla L)",
         precio: "$17.00",
         categoria: "ropa",
-        imagen: "assets/franela-alice.jpg",
+        imagen: "assets/franela-alice_in_chains.jpg",
         agotado: false
     },
     {
@@ -677,7 +667,7 @@ const productsData = [
         nombre: "Franela Nine Inch Nails (Talla L)",
         precio: "$17.00",
         categoria: "ropa",
-        imagen: "assets/franela-nin.jpg",
+        imagen: "assets/franela-nin-inch-nails.jpg",
         agotado: false
     },
     {
