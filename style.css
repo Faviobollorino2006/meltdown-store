@@ -374,46 +374,50 @@ body {
 
 
 /* ==========================================================
-   1. BOTÓN FLOTANTE DE WHATSAPP (CÍRCULO MATEMÁTICO PERFECTO)
+   AISLAMIENTO TOTAL DEL BOTÓN DE WHATSAPP (ANTI-DEFORMACIÓN)
    ========================================================== */
-.whatsapp-float {
+a.whatsapp-float {
     position: fixed !important;
     bottom: 25px !important;
     right: 25px !important;
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    min-height: 58px !important;
-    max-width: 58px !important;
-    max-height: 58px !important;
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    max-width: 60px !important;
+    max-height: 60px !important;
     border-radius: 50% !important;
     background: #081a0c !important;
     border: 2px solid #25d366 !important;
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.5) !important;
     z-index: 999999 !important;
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     padding: 0 !important;
     margin: 0 !important;
-    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
 }
 
-.whatsapp-float svg {
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 28px !important;
-    height: 28px !important;
+a.whatsapp-float svg {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
     display: block !important;
+    margin: auto !important;
+    flex-shrink: 0 !important;
 }
 
-.whatsapp-float:hover {
+a.whatsapp-float:hover {
     transform: scale(1.1) !important;
     background: #25d366 !important;
     box-shadow: 0 0 30px rgba(37, 211, 102, 0.9) !important;
 }
 
-.whatsapp-float:hover svg path {
+a.whatsapp-float:hover svg path {
     fill: #000 !important;
 }
 
@@ -546,51 +550,5 @@ body {
     .info-card {
         padding: 18px;
     }
-    /* ==========================================================
-   AISLAMIENTO TOTAL DEL BOTÓN DE WHATSAPP (ANTI-DEFORMACIÓN)
-   ========================================================== */
-a.whatsapp-float {
-    position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important;
-    width: 60px !important;
-    height: 60px !important;
-    min-width: 60px !important;
-    min-height: 60px !important;
-    max-width: 60px !important;
-    max-height: 60px !important;
-    border-radius: 50% !important;
-    background: #081a0c !important;
-    border: 2px solid #25d366 !important;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5) !important;
-    z-index: 999999 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-}
-
-a.whatsapp-float svg {
-    width: 30px !important;
-    height: 30px !important;
-    min-width: 30px !important;
-    min-height: 30px !important;
-    max-width: 30px !important;
-    max-height: 30px !important;
-    display: block !important;
-    margin: auto !important;
-    flex-shrink: 0 !important;
-}
-
-a.whatsapp-float:hover {
-    transform: scale(1.1) !important;
-    background: #25d366 !important;
-    box-shadow: 0 0 30px rgba(37, 211, 102, 0.9) !important;
-}
-
-a.whatsapp-float:hover svg path {
-    fill: #000 !important;
-}
+    
 
