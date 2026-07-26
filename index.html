@@ -1,46 +1,76 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const grid = document.querySelector(".product-grid");
-    const filterButtons = document.querySelectorAll(".category-filters button");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meltdown | Catálogo</title>
+    
+    <link rel="icon" href="assets/meltdown_logo_nobg.png">
 
-    if (!grid) return;
+    <meta property="og:title" content="MELTDOWN | La Elegancia del Caos">
+    <meta property="og:description" content="Accesorios y prendas independientes para quienes encuentran poder en lo oscuro.">
+    <meta property="og:image" content="assets/meltdown_logo.jpg">
+    <meta property="og:type" content="website">
 
-    function renderProducts(filter = "todo") {
-        grid.innerHTML = "";
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        const filtered = filter === "todo" 
-            ? productsData 
-            : productsData.filter(p => p.categoria === filter);
+    <header class="hero">
+        <div class="brand-container">
+            <img src="assets/meltdown_logo_nobg.png" alt="Logo Meltdown" class="logo-img">
+            <h1>MELTDOWN</h1>
+            <p class="tagline">LA ELEGANCIA DEL CAOS, EL PODER DE LO OSCURO.</p>
+        </div>
+    </header>
 
-        filtered.forEach(product => {
-            const card = document.createElement("div");
-            card.className = "product-card";
-            card.setAttribute("data-category", product.categoria);
+    <main id="catalogo">
+        <div class="section-header">
+            <svg class="thematic-icon" viewBox="0 0 24 24" width="30" height="30"><path fill="#e0e0e0" d="M12,2C11.5,2 11,2.2 10.6,2.5C7.5,4.8 2,8 2,11C2,12.5 3.2,14 5,14C6.5,14 7.5,13 8,12C7.5,14.5 8.5,17 10,18.5C9,19 8,19.5 7,20C9.5,21.5 12,21.5 12,21.5C12,21.5 14.5,21.5 17,20C16,19.5 15,19 14,18.5C15.5,17 16.5,14.5 16,12C16.5,13 17.5,14 19,14C20.8,14 22,12.5 22,11C22,8 16.5,4.8 13.4,2.5C13,2.2 12.5,2 12,2Z"/></svg>
+            <h2>NUESTROS PRODUCTOS</h2>
+            <svg class="thematic-icon" viewBox="0 0 24 24" width="30" height="30"><path fill="#e0e0e0" d="M12,2C12.5,2 13,2.2 13.4,2.5C16.5,4.8 22,8 22,11C22,12.5 20.8,14 19,14C17.5,14 16.5,13 16,12C16.5,14.5 15.5,17 14,18.5C15,19 16,19.5 17,20C14.5,21.5 12,21.5 12,21.5C12,21.5 9.5,21.5 7,20C8,19.5 9,19 10,18.5C8.5,17 7.5,14.5 8,12C7.5,13 6.5,14 5,14C3.2,14 2,12.5 2,11C2,8 7.5,4.8 10.6,2.5C11,2.2 11.5,2 12,2Z"/></svg>
+        </div>
 
-            const msg = encodeURIComponent(`Hola, vengo de la página web y quiero hacer un pedido de MELTDOWN: ${product.nombre}`);
-            const waLink = `https://wa.me/584129873719?text=${msg}`;
+        <div class="category-filters">
+            <button class="active" data-filter="todo">TODO</button>
+            <button data-filter="ropa">ROPA</button>
+            <button data-filter="accesorios">ACCESORIOS</button>
+            <button data-filter="anillos">ANILLOS</button>
+        </div>
 
-            card.innerHTML = `
-                <div class="product-image-container ${product.agotado ? 'sold-out' : ''}">
-                    <img src="${product.imagen}" alt="${product.nombre}" onerror="this.src='assets/meltdown_logo.jpg'">
-                    ${product.agotado ? '<span class="sold-out-badge">AGOTADO</span>' : ''}
-                </div>
-                <h3>${product.nombre}</h3>
-                <p class="price">${product.precio}</p>
-                <a href="${product.agotado ? '#' : waLink}" class="whatsapp-btn ${product.agotado ? 'disabled' : ''}" target="_blank" rel="noopener noreferrer">
-                    ${product.agotado ? 'Agotado' : 'Pedir por WhatsApp'}
-                </a>
-            `;
-            grid.appendChild(card);
-        });
-    }
+        <div class="product-grid"></div>
+    </main>
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            filterButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            renderProducts(btn.getAttribute("data-filter"));
-        });
-    });
+    <section class="about-location-section">
+        <div class="info-card">
+            <h3>¿QUIÉNES SOMOS?</h3>
+            <p>MELTDOWN nació de la necesidad de materializar la elegancia del caos. Somos una marca independiente dedicada a forjar accesorios y prendas para quienes encuentran poder en lo oscuro, lo alternativo y lo disruptivo.</p>
+        </div>
+        <div class="info-card">
+            <h3>Maturín, Monagas</h3>
+            <p>Piezas seleccionadas con devoción y listas para despachar. Operamos localmente con entregas seguras.</p>
+            <div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.241681319995!2d-63.18231942549408!3d9.745584327361872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c3340b587a03af7%3A0x35b5877281647246!2sPlaza%20R%C3%B3mulo%20Gallegos%2C%20Matur%C3%ADn%206201%2C%20Monagas%2C%20Venezuela!5e0!3m2!1ses!2sec!4v1785025500445!5m2!1ses!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>            </div>
+        </div>
+    </section>
 
-    renderProducts();
-});
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/meltdown.mat/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@meltd0wn.mat?_r=1&_t=ZS-98HT0Gzr2I9" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            </a>
+        </div>
+        <p class="footer-copy">MELTDOWN © 2026 — TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+
+    <a href="https://wa.me/584129873719?text=Hola,%20vengo%20de%20la%20página%20web%20y%20quiero%20hacer%20un%20pedido%20de%20MELTDOWN" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="#25D366" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.59 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.57L5.06 16.26C4.24 14.93 3.81 13.44 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.43 7.33 8.27 7.37 8.13 7.53C7.99 7.69 7.6 8.05 7.6 8.78C7.6 9.5 8.13 10.2 8.2 10.3C8.28 10.4 9.22 11.85 10.67 13.15C11.88 14.23 12.87 14.56 13.26 14.73C13.9 15 14.31 14.94 14.47 14.76C14.7 14.5 15.3 13.8 15.43 13.47C15.56 13.14 15.56 12.87 15.43 12.7C15.3 12.53 15.03 12.43 14.63 12.23C14.23 12.03 12.27 11.06 11.91 10.93C11.55 10.8 11.28 10.73 11.01 11.13C10.75 11.53 10.01 12.4 9.78 12.67C9.56 12.93 9.33 12.96 8.93 12.76C8.53 12.56 7.24 12.13 5.71 10.75C4.51 9.67 3.71 8.33 3.48 7.94C3.25 7.55 3.45 7.34 3.65 7.14C3.83 6.96 4.05 6.69 4.25 6.46C4.45 6.23 4.51 6.06 4.64 5.8C4.78 5.54 4.71 5.33 4.61 5.13C4.51 4.93 3.91 3.43 3.66 2.83C3.41 2.24 3.16 2.33 2.98 2.33C2.81 2.33 2.61 2.33 2.41 2.33C2.21 2.33 1.88 2.41 1.61 2.71C1.34 3.01 0.58 3.71 0.58 5.16C0.58 6.61 1.63 8.01 1.78 8.21C1.93 8.41 3.86 11.4 6.82 12.72C9.53 13.93 10.08 13.7 10.66 13.64C11.24 13.58 12.51 12.89 12.77 12.16C13.03 11.43 13.03 10.8 12.96 10.69C12.89 10.58 12.72 10.51 12.45 10.37Z"/></svg>
+    </a>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
