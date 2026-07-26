@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".product-grid");
     const filterButtons = document.querySelectorAll(".category-filters button");
 
+    if (!grid) return;
+
     function renderProducts(filter = "todo") {
-        if (!grid) return;
         grid.innerHTML = "";
 
         const filtered = filter === "todo" 

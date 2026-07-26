@@ -715,9 +715,4 @@ const productsData = [
         image: "assets/gorro-ushanka.jpg",
         agotado: false
     }
-    
-]; 
-
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = productsData;
-}
+];
